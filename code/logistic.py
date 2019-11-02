@@ -25,7 +25,7 @@ def get_feature_vector(tweet):
     uni_feature_vector = []
     bi_feature_vector = []
     words = tweet.split()
-    for i in xrange(len(words) - 1):
+    for i in range(len(words) - 1):
         word = words[i]
         next_word = words[i + 1]
         if unigrams.get(word):
@@ -41,7 +41,7 @@ def get_feature_vector(tweet):
 
 def extract_features(tweets, batch_size=500, test_file=True, feat_type='presence'):
     num_batches = int(np.ceil(len(tweets) / float(batch_size)))
-    for i in xrange(num_batches):
+    for i in range(num_batches):
         batch = tweets[i * batch_size: (i + 1) * batch_size]
         features = np.zeros((batch_size, VOCAB_SIZE))
         labels = np.zeros(batch_size)
@@ -124,7 +124,7 @@ if __name__ == '__main__':
     model = build_model()
     n_train_batches = int(np.ceil(len(train_tweets) / float(batch_size)))
     best_val_acc = 0.0
-    for j in xrange(nb_epochs):
+    for j in range(nb_epochs):
         i = 1
         for training_set_X, training_set_y in extract_features(train_tweets, feat_type=FEAT_TYPE, batch_size=batch_size,
                                                                test_file=False):

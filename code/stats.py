@@ -28,7 +28,7 @@ def analyze_tweet(tweet):
 def get_bigrams(tweet_words):
     bigrams = []
     num_words = len(tweet_words)
-    for i in xrange(num_words - 1):
+    for i in range(num_words - 1):
         bigrams.append((tweet_words[i], tweet_words[i + 1]))
     return bigrams
 
